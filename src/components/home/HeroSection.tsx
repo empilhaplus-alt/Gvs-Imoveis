@@ -22,7 +22,7 @@ const HeroSection = () => {
             </div>
 
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-shadow">
-              Seu novo lar
+              Sua casa nova
               <br />
               <span className="text-accent">começa aqui</span>
             </h1>

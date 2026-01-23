@@ -1,9 +1,9 @@
 import property1 from '@/assets/casa-destaque.jpg';
-import property2 from '@/assets/property-2.jpg';
-import property3 from '@/assets/property-3.jpg';
-import property4 from '@/assets/property-4.jpg';
-import property5 from '@/assets/property-5.jpg';
-import property6 from '@/assets/property-6.jpg';
+import property2 from '@/assets/imovel-2.jpg';
+import property3 from '@/assets/imovel-3.jpg';
+import property4 from '@/assets/imovel-4.jpg';
+import property5 from '@/assets/imovel-5.jpg';
+import property6 from '@/assets/imovel-6.jpg';
 
 export interface Property {
   id: string;

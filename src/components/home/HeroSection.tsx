@@ -1,8 +1,8 @@
 import { ArrowRight, Shield, Award, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-building.jpg';
+import heroImage from '@/assets/hero-bg.jpg';
 const HeroSection = () => {
-  const whatsappLink = 'https://wa.me/5521999999999?text=Olá! Gostaria de mais informações sobre os lançamentos imobiliários.';
+  const whatsappLink = 'https://wa.me/5521993441531?text=Olá! Gostaria de mais informações sobre os lançamentos imobiliários.';
 
   return (
     <section className="relative min-h-[90vh] flex items-center hero-gradient overflow-hidden">

@@ -1,4 +1,4 @@
-import property1 from '@/assets/property-1.jpg';
+import property1 from '@/assets/casa-destaque.jpg';
 import property2 from '@/assets/property-2.jpg';
 import property3 from '@/assets/property-3.jpg';
 import property4 from '@/assets/property-4.jpg';

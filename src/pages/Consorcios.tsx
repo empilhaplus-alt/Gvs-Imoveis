@@ -16,14 +16,35 @@ const administrators = [
 ];
 export default function Consorcios() {
   return <Layout>
-    <section className="hero-gradient text-white">
-      <div className="container py-16 md:py-24 max-w-5xl">
-        <div className="inline-flex items-center gap-2 rounded-full bg-white/10 text-accent px-4 py-2 text-sm font-semibold mb-7"><BadgeCheck className="w-4 h-4"/> Representação comercial</div>
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl">Consórcios para planejar suas <span className="text-accent">próximas conquistas</span></h1>
-        <p className="text-lg md:text-xl mt-6 text-white/85 leading-relaxed max-w-3xl">Planeje suas conquistas com quem mais entende de consórcios. A GVS oferece atendimento personalizado para ajudar você a encontrar o plano mais adequado aos seus objetivos. Somos representantes da Embracon, Consórcio União e Consórcio Âncora.</p>
-        <div className="flex flex-wrap gap-3 mt-9">
-          <a className="inline-flex items-center justify-center bg-accent text-accent-foreground rounded-lg py-3 px-6 font-semibold hover:brightness-95" href={whatsappUrl('consórcios')} target="_blank" rel="noopener noreferrer">Falar com um representante <ArrowRight className="w-4 h-4 ml-2"/></a>
-          <a href="#modalidades" className="inline-flex items-center rounded-lg border border-white/50 px-6 py-3 font-semibold hover:bg-white/10">Ver modalidades</a>
+    <section className="hero-gradient text-white overflow-hidden">
+      <div className="container py-12 md:py-16 lg:py-20">
+        <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-8 xl:gap-12 items-center">
+          <div className="min-w-0">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 text-accent px-4 py-2 text-sm font-semibold mb-6"><BadgeCheck className="w-4 h-4"/> Representação comercial</div>
+            <h1 className="font-serif text-4xl md:text-5xl xl:text-[3.25rem] font-bold leading-[1.12]">Consórcios para planejar suas <span className="text-accent">próximas conquistas</span></h1>
+            <p className="text-base sm:text-lg mt-6 text-white/85 leading-relaxed">Planeje suas conquistas com quem mais entende de consórcios. A GVS oferece atendimento personalizado para ajudar você a encontrar o plano mais adequado aos seus objetivos. Somos representantes da Embracon, Consórcio União e Consórcio Âncora.</p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              <a className="inline-flex items-center justify-center bg-accent text-accent-foreground rounded-lg py-3 px-5 font-semibold hover:brightness-95" href={whatsappUrl('consórcios')} target="_blank" rel="noopener noreferrer">Falar com um representante <ArrowRight className="w-4 h-4 ml-2"/></a>
+              <a href="#modalidades" className="inline-flex items-center rounded-lg border border-white/50 px-5 py-3 font-semibold hover:bg-white/10">Ver modalidades</a>
+            </div>
+          </div>
+          <div className="relative w-full max-w-[480px] mx-auto lg:max-w-none lg:justify-self-end" aria-label="Imagem ilustrativa das modalidades de consórcio">
+            <img
+              src="/gvs-consorcios-700.webp"
+              onError={(event) => {
+                const img = event.currentTarget;
+                if (!img.src.endsWith('/gvs-consorcios-ilustracao.svg')) {
+                  img.src = '/gvs-consorcios-ilustracao.svg';
+                }
+              }}
+              alt="Ilustração com casa, automóvel, motocicleta e ferramentas representando serviços"
+              width="700"
+              height="700"
+              decoding="async"
+              fetchPriority="high"
+              className="block w-full h-auto object-contain drop-shadow-2xl"
+            />
+          </div>
         </div>
       </div>
     </section>

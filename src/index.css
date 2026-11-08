@@ -254,3 +254,10 @@
     @apply backdrop-blur-md bg-primary/90;
   }
 }
+
+/* Offset fixed navigation when jumping to sections or navigating by hash. */
+html { scroll-padding-top: 6rem; }
+[id] { scroll-margin-top: 6rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

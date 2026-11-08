@@ -1,35 +1,13 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Lancamentos from "./pages/Lancamentos";
-import Sobre from "./pages/Sobre";
-import Contato from "./pages/Contato";
-import PropertyDetail from "./pages/PropertyDetail";
-import NotFound from "./pages/NotFound";
-
+import { Toaster } from '@/components/ui/toaster';
+import { Toaster as Sonner } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import Lancamentos from './pages/Lancamentos';
+import Consorcios from './pages/Consorcios';
+import Sobre from './pages/Sobre';
+import Contato from './pages/Contato';
+import NotFound from './pages/NotFound';
 const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/lancamentos" element={<Lancamentos />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/imovel/:slug" element={<PropertyDetail />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+export default function App(){return <QueryClientProvider client={queryClient}><TooltipProvider><Toaster/><Sonner/><BrowserRouter><Routes><Route path="/" element={<Index/>}/><Route path="/imoveis" element={<Lancamentos/>}/><Route path="/lancamentos" element={<Lancamentos/>}/><Route path="/consorcios" element={<Consorcios/>}/><Route path="/sobre" element={<Sobre/>}/><Route path="/contato" element={<Contato/>}/><Route path="*" element={<NotFound/>}/></Routes></BrowserRouter></TooltipProvider></QueryClientProvider>}

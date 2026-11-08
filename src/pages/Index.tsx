@@ -1,20 +1,14 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight, Building2, Handshake, Home, CarFront, Bike, ClipboardList } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import HeroSection from '@/components/home/HeroSection';
-import FeaturedProperties from '@/components/home/FeaturedProperties';
-import BenefitsSection from '@/components/home/BenefitsSection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
-import CTASection from '@/components/home/CTASection';
-
-const Index = () => {
-  return (
-    <Layout>
-      <HeroSection />
-      <FeaturedProperties />
-      <BenefitsSection />
-      <TestimonialsSection />
-      <CTASection />
-    </Layout>
-  );
-};
-
-export default Index;
+import { whatsappUrl } from '@/lib/contact';
+import heroImage from '@/assets/hero-bg.jpg';
+const categories=[{icon:Home,label:'Imóveis',description:'Para morar ou investir'},{icon:CarFront,label:'Automóveis',description:'Planejamento para seu veículo'},{icon:Bike,label:'Motocicletas',description:'Conquiste sua próxima moto'},{icon:ClipboardList,label:'Serviços',description:'Projetos e serviços elegíveis'}];
+export default function Index(){return <Layout>
+ <section className="hero-gradient text-primary-foreground"><div className="container py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center"><div><p className="inline-flex rounded-full px-4 py-2 bg-white/10 text-accent font-medium text-sm mb-6">GVS Imóveis • Imóveis e Consórcios</p><h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Seu próximo imóvel ou projeto <span className="text-accent">começa com uma boa escolha.</span></h1><p className="text-lg md:text-xl text-white/80 mt-7 leading-relaxed">A GVS atua na intermediação de imóveis novos, usados e na planta e na representação comercial de consórcios de imóveis, automóveis, motocicletas e serviços.</p><div className="flex flex-wrap gap-3 mt-8"><Link className="bg-accent text-accent-foreground rounded-lg py-3 px-6 font-semibold inline-flex gap-2 items-center" to="/imoveis">Conhecer imóveis <ArrowRight className="w-4 h-4"/></Link><Link className="bg-white text-primary rounded-lg py-3 px-6 font-semibold inline-flex gap-2 items-center" to="/consorcios">Conhecer consórcios <ArrowRight className="w-4 h-4"/></Link></div></div><div className="rounded-2xl overflow-hidden shadow-2xl"><img src={heroImage} alt="Imagem ilustrativa de empreendimento residencial" className="w-full h-[350px] lg:h-[470px] object-cover"/></div></div></section>
+ <section className="py-20 bg-background"><div className="container"><div className="text-center max-w-3xl mx-auto mb-12"><p className="text-accent font-semibold">Como podemos ajudar?</p><h2 className="font-serif text-3xl md:text-4xl font-bold mt-2">Duas áreas de atuação, um atendimento próximo</h2><p className="text-muted-foreground mt-4">Escolha o caminho que mais combina com o seu objetivo.</p></div><div className="grid md:grid-cols-2 gap-6">
+ <article className="rounded-2xl border bg-card p-8 shadow-sm"><Building2 className="w-10 h-10 text-accent"/><h3 className="font-serif text-2xl font-bold mt-5">Intermediação imobiliária</h3><p className="text-muted-foreground mt-3 leading-relaxed">Atendimento para compra e venda de imóveis novos, usados e na planta, incluindo lançamentos imobiliários.</p><Link to="/imoveis" className="text-primary font-semibold inline-flex items-center gap-2 mt-6 hover:underline">Explorar imóveis <ArrowRight className="w-4 h-4"/></Link></article>
+ <article className="rounded-2xl border bg-card p-8 shadow-sm"><Handshake className="w-10 h-10 text-accent"/><h3 className="font-serif text-2xl font-bold mt-5">Representação de consórcios</h3><p className="text-muted-foreground mt-3 leading-relaxed">Apresentação de alternativas para aquisição planejada por meio das administradoras Embracon, União e Âncora.</p><Link to="/consorcios" className="text-primary font-semibold inline-flex items-center gap-2 mt-6 hover:underline">Entender consórcios <ArrowRight className="w-4 h-4"/></Link></article></div></div></section>
+ <section className="py-20 bg-secondary/50"><div className="container"><h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-4">Consórcios para diferentes objetivos</h2><p className="text-center text-muted-foreground mb-10">Conheça as modalidades e converse com um representante antes de decidir.</p><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">{categories.map(x=><Link key={x.label} to="/consorcios" className="rounded-xl bg-card border p-6 hover:shadow-lg transition-shadow"><x.icon className="w-9 h-9 text-accent"/><h3 className="font-serif text-xl font-bold mt-4">{x.label}</h3><p className="text-sm text-muted-foreground mt-2">{x.description}</p></Link>)}</div></div></section>
+ <section className="py-20 hero-gradient text-primary-foreground"><div className="container text-center"><h2 className="font-serif text-3xl md:text-4xl font-bold">Vamos conversar sobre seu objetivo?</h2><p className="text-white/80 mt-4 mb-8 max-w-2xl mx-auto">Nossa equipe pode orientar você sobre os próximos passos na compra de um imóvel ou na escolha de um consórcio.</p><a href={whatsappUrl('atendimento para imóveis ou consórcios')} target="_blank" rel="noopener noreferrer" className="inline-flex bg-accent text-accent-foreground font-semibold px-7 py-3 rounded-lg">Falar com a GVS</a></div></section>
+ </Layout>}

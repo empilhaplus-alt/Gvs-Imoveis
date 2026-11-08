@@ -1,110 +1,15 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Building2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/lancamentos', label: 'Lançamentos' },
-    { href: '/sobre', label: 'Sobre' },
-    { href: '/contato', label: 'Contato' },
-  ];
-
-  const isActive = (path: string) => location.pathname === path;
-
-  const whatsappLink = 'https://wa.me/5521999999999?text=Olá! Gostaria de mais informações sobre os imóveis.';
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
-      <div className="container">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg hero-gradient flex items-center justify-center group-hover:scale-105 transition-transform">
-              <Building2 className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl font-bold text-primary">Gvs Imóveis</span>
-              <span className="text-xs text-muted-foreground -mt-1">Lançamentos Exclusivos</span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={`relative text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.href)
-                    ? 'text-primary after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-accent'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <Button className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                <Phone className="w-4 h-4" />
-                Fale Conosco
-              </Button>
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border/50 animate-fade-in">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(link.href)
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-muted-foreground hover:bg-secondary'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2"
-              >
-                <Button className="w-full gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                  <Phone className="w-4 h-4" />
-                  Fale Conosco
-                </Button>
-              </a>
-            </div>
-          </nav>
-        )}
-      </div>
-    </header>
-  );
-};
-
-export default Header;
+import { Menu, X, Building2, Phone } from 'lucide-react';
+import { company, whatsappUrl } from '@/lib/contact';
+const links = [{to:'/',label:'Início'},{to:'/imoveis',label:'Imóveis'},{to:'/consorcios',label:'Consórcios'},{to:'/sobre',label:'Sobre a GVS'},{to:'/contato',label:'Contato'}];
+export default function Header(){
+ const [open,setOpen]=useState(false);const {pathname}=useLocation();
+ return <header className="fixed inset-x-0 top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+ <div className="container h-20 flex justify-between items-center gap-3">
+ <Link to="/" className="flex items-center gap-2 shrink-0" onClick={()=>setOpen(false)}><div className="w-10 h-10 rounded-lg hero-gradient flex items-center justify-center"><Building2 className="text-white w-6 h-6"/></div><div><div className="font-serif font-bold text-primary text-lg">{company.name}</div><div className="text-xs text-muted-foreground">{company.subtitle}</div></div></Link>
+ <nav className="hidden lg:flex items-center gap-6" aria-label="Navegação principal">{links.map(x=><Link key={x.to} to={x.to} className={`text-sm font-medium hover:text-accent transition-colors ${pathname===x.to?'text-primary border-b-2 border-accent pb-1':'text-muted-foreground'}`}>{x.label}</Link>)}</nav>
+ <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="hidden lg:inline-flex items-center gap-2 rounded-lg px-4 py-3 bg-accent text-accent-foreground font-semibold text-sm"><Phone className="w-4 h-4"/>Fale conosco</a>
+ <button type="button" className="lg:hidden p-2" onClick={()=>setOpen(!open)} aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open}>{open?<X/>:<Menu/>}</button></div>
+ {open&&<nav className="lg:hidden container pb-4 flex flex-col gap-1 bg-background" aria-label="Navegação móvel">{links.map(x=><Link key={x.to} to={x.to} onClick={()=>setOpen(false)} className="py-3 px-3 rounded hover:bg-secondary">{x.label}</Link>)}<a className="py-3 px-3 bg-accent rounded text-accent-foreground font-semibold" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale conosco</a></nav>}</header>
+}

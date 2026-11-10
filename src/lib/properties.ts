@@ -13,7 +13,7 @@ export type Property = {
 export type PropertyDraft = Omit<Property, 'id' | 'created_at' | 'updated_at'>;
 type LoginResult = { access_token: string; expires_in: number; refresh_token: string; user: { id:string } };
 
-async function request<T>(path:string, options: RequestInit = {}, token?:string): Promise<T> {
+export async function request<T>(path:string, options: RequestInit = {}, token?:string): Promise<T> {
  const headers = new Headers(options.headers);
  headers.set('apikey', PUBLIC_KEY);
  if (token) headers.set('Authorization', 'Bearer ' + token);

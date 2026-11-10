@@ -46,7 +46,7 @@ export const adminGranted = (token:string) => request<{user_id:string}[]>('/rest
 export const listAdminProperties = (token:string) => request<Property[]>('/rest/v1/gvs_properties?select=*&order=updated_at.desc&limit=200',{},token);
 export const saveProperty = async (draft: PropertyDraft,token:string,id?:string):Promise<Property> => {
  const url=id?'/rest/v1/gvs_properties?id=eq.'+encodeURIComponent(id):'/rest/v1/gvs_properties';
- const data=await request<Property[]>(url,{method:id?'PATCH':'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(draft)},token);
+ const data=await request<Property[]>(url,{method:id?'PATCH':'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(id ? {...draft,updated_at:new Date().toISOString()} : draft)},token);
  if(!data[0])throw new Error('Nenhum registro foi salvo. Confira suas permissões.');
  return data[0];
 };

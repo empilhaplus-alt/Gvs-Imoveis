@@ -1,192 +1,34 @@
 import Layout from '@/components/layout/Layout';
-import { Shield, Users, Award, Target, Heart, Lightbulb } from 'lucide-react';
-
-const values = [
-  {
-    icon: Shield,
-    title: 'Transparência',
-    description: 'Clareza em todas as etapas do processo de compra.'
-  },
-  {
-    icon: Heart,
-    title: 'Compromisso',
-    description: 'Dedicação total à realização do seu sonho.'
-  },
-  {
-    icon: Target,
-    title: 'Excelência',
-    description: 'Busca constante pela qualidade no atendimento.'
-  },
-  {
-    icon: Lightbulb,
-    title: 'Inovação',
-    description: 'Sempre atualizados com as melhores práticas do mercado.'
-  }
+import { Building2, Handshake, ShieldCheck, MessageSquareText, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { company } from '@/lib/contact';
+const pillars=[
+ {icon:Building2,title:'Intermediação imobiliária',text:'Atuação na compra e venda de imóveis novos, usados e na planta, com credenciamento imobiliário no CRECI.'},
+ {icon:Handshake,title:'Representação de consórcios',text:'Comercialização de consórcios de imóveis, automóveis, motocicletas e serviços das administradoras Embracon, União e Âncora.'},
+ {icon:ShieldCheck,title:'Informação responsável',text:'Apresentação das condições e regras de cada produto com clareza, sem prometer resultados ou contemplação.'},
+ {icon:MessageSquareText,title:'Atendimento personalizado',text:'Conversas orientadas pelo objetivo, necessidades e planejamento do cliente.'},
 ];
-
-const team = [
-  { name: 'Ricardo Mendes', role: 'Diretor Comercial' },
-  { name: 'Fernanda Costa', role: 'Gerente de Vendas' },
-  { name: 'Bruno Almeida', role: 'Consultor Sênior' },
-];
-
-const Sobre = () => {
-  return (
-    <Layout>
-      {/* Hero */}
-      <section className="py-16 md:py-24 hero-gradient">
-        <div className="container text-center text-primary-foreground">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
-            Sobre a Gvs Imóveis
-          </h1>
-          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto animate-fade-in animation-delay-200">
-            Há mais de 15 anos realizando o sonho da casa própria no Rio de Janeiro.
-          </p>
-        </div>
-      </section>
-
-      {/* Nossa História */}
-      <section className="py-20 bg-background">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <p className="text-accent font-medium mb-2">Nossa História</p>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Uma Trajetória de Sucesso e Confiança
-              </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  A GVS Imóveis nasceu com a missão de transformar a experiência no 
-                  mercado imobiliário, oferecendo atendimento personalizado e soluções 
-                  inteligentes para compra, venda e locação de imóveis.
-                </p>
-                <p>
-                  Com anos de experiência no setor, nosso time de especialistas trabalha com 
-                  transparência, profissionalismo e foco total na satisfação dos clientes. 
-                  Acreditamos que um bom negócio imobiliário vai além da transação: ele deve
-                  proporcionar segurança, conforto e valorização patrimonial.
-                </p>
-                <p>
-                  Seja para morar ou investir, estamos prontos para ajudar você a encontrar o 
-                  que entendem as necessidades de cada cliente e oferecem soluções personalizadas para 
-                  cada perfil.
-                </p>
-              </div>
-            </div>
-            <div className="animate-fade-in animation-delay-300">
-              <div className="aspect-[4/3] rounded-2xl bg-secondary flex items-center justify-center card-shadow">
-                <div className="text-center p-8">
-                  <Award className="w-16 h-16 text-accent mx-auto mb-4" />
-                  <p className="text-muted-foreground">Foto da Equipe</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Missão e Valores */}
-      <section className="py-20 bg-secondary/50">
-        <div className="container">
-          {/* Missão */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="text-accent font-medium mb-2">Nossa Missão</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Realizar Sonhos com Excelência
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Proporcionar a melhor experiência na aquisição do imóvel ideal, oferecendo 
-              atendimento personalizado, segurança jurídica e as melhores condições do mercado, 
-              transformando sonhos em realidade.
-            </p>
-          </div>
-
-          {/* Valores */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={value.title}
-                  className="text-center p-6 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms`, opacity: 0, animationFillMode: 'forwards' }}
-                >
-                  <div className="w-16 h-16 rounded-full hero-gradient flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {value.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Números */}
-      <section className="py-20 hero-gradient">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-primary-foreground">
-            <div className="animate-fade-in">
-              <p className="font-serif text-5xl font-bold text-accent mb-2">500+</p>
-              <p className="text-primary-foreground/80">Imóveis Vendidos</p>
-            </div>
-            <div className="animate-fade-in animation-delay-100">
-              <p className="font-serif text-5xl font-bold text-accent mb-2">15</p>
-              <p className="text-primary-foreground/80">Anos de Mercado</p>
-            </div>
-            <div className="animate-fade-in animation-delay-200">
-              <p className="font-serif text-5xl font-bold text-accent mb-2">50+</p>
-              <p className="text-primary-foreground/80">Parceiros</p>
-            </div>
-            <div className="animate-fade-in animation-delay-300">
-              <p className="font-serif text-5xl font-bold text-accent mb-2">98%</p>
-              <p className="text-primary-foreground/80">Satisfação</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Equipe */}
-      <section className="py-20 bg-background">
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-accent font-medium mb-2">Nossa Equipe</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Profissionais Dedicados
-            </h2>
-            <p className="text-muted-foreground">
-              Conheça os especialistas que vão ajudar você a encontrar o imóvel perfeito.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {team.map((member, index) => (
-              <div
-                key={member.name}
-                className="text-center p-6 bg-card rounded-xl card-shadow animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms`, opacity: 0, animationFillMode: 'forwards' }}
-              >
-                <div className="w-24 h-24 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground">
-                  {member.name}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {member.role}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </Layout>
-  );
-};
-
-export default Sobre;
+export default function Sobre() {
+ return <Layout>
+  <section className="hero-gradient py-16 md:py-24 text-white">
+    <div className="container max-w-5xl">
+      <p className="text-accent font-semibold mb-3">Sobre a GVS</p>
+      <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Uma empresa. Duas formas de ajudar você a conquistar.</h1>
+      <p className="text-white/85 text-lg leading-relaxed mt-6 max-w-3xl">Reunimos a intermediação imobiliária e a representação comercial de consórcios para atender objetivos diferentes com informação e proximidade.</p>
+    </div>
+  </section>
+  <section className="py-16 md:py-20">
+    <div className="container max-w-6xl grid lg:grid-cols-2 gap-8">
+      <article className="bg-card rounded-2xl border p-8 md:p-10"><Building2 className="text-accent w-10 h-10"/><h2 className="font-serif text-3xl font-bold mt-5">Imóveis</h2><p className="text-muted-foreground mt-4 leading-relaxed">A {company.name} atua na intermediação imobiliária de imóveis novos, usados e na planta. Nosso trabalho inclui compreender o perfil de quem deseja comprar ou vender e orientar a busca e a negociação conforme as condições disponíveis.</p><Link to="/imoveis" className="inline-flex gap-2 items-center mt-7 font-semibold text-primary hover:underline">Conhecer a atuação imobiliária <ArrowRight className="w-4 h-4"/></Link></article>
+      <article className="bg-card rounded-2xl border p-8 md:p-10"><Handshake className="text-accent w-10 h-10"/><h2 className="font-serif text-3xl font-bold mt-5">Consórcios</h2><p className="text-muted-foreground mt-4 leading-relaxed">Como representante comercial, a GVS ajuda clientes a conhecer modalidades e planos das administradoras representadas. A gestão dos grupos, as regras de contemplação e os contratos são responsabilidade das respectivas administradoras.</p><Link to="/consorcios" className="inline-flex gap-2 items-center mt-7 font-semibold text-primary hover:underline">Entender nossas opções <ArrowRight className="w-4 h-4"/></Link></article>
+    </div>
+  </section>
+  <section className="py-16 md:py-20 bg-secondary/60"><div className="container max-w-6xl">
+    <p className="text-accent font-semibold mb-2">Nosso compromisso</p><h2 className="font-serif text-3xl md:text-4xl font-bold mb-9">Clareza do primeiro contato à decisão.</h2>
+    <div className="grid md:grid-cols-2 gap-5">{pillars.map(p=><article key={p.title} className="border bg-card rounded-xl p-7"><p.icon className="w-9 h-9 text-accent"/><h3 className="font-serif text-xl font-bold mt-4">{p.title}</h3><p className="text-muted-foreground mt-3 leading-relaxed">{p.text}</p></article>)}</div>
+  </div></section>
+  <section className="py-12"><div className="container max-w-6xl flex flex-col sm:flex-row gap-6 sm:items-center sm:justify-between">
+    <div><h2 className="font-serif text-2xl font-bold">Converse com a GVS</h2><p className="text-muted-foreground mt-2">Conte o seu objetivo. Nossa equipe orientará o próximo passo.</p></div><Link to="/contato" className="inline-flex justify-center items-center gap-2 bg-primary text-primary-foreground rounded-lg py-3 px-6 font-semibold">Entrar em contato <ArrowRight className="w-4 h-4"/></Link>
+  </div></section>
+ </Layout>;
+}

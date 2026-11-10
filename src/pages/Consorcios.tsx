@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import { Home, CarFront, Bike, Wrench, BadgeCheck, ArrowRight, Info, CheckCircle2, MessageCircle, ClipboardCheck, Users, ChevronDown, ShieldCheck, CalendarClock, FileText, SearchCheck, Phone, Sparkles } from 'lucide-react';
-import { whatsappUrl } from '@/lib/contact';
+import { whatsappUrl, company } from '@/lib/contact';
 import houseImage from '@/assets/hero-bg.jpg';
 
 const categories = [
@@ -57,6 +57,18 @@ const questions = [
 
 export default function Consorcios() {
   const [interest, setInterest] = useState('Consórcio de imóveis');
+  const [creditAmount, setCreditAmount] = useState('');
+  const [monthlyBudget, setMonthlyBudget] = useState('');
+  const [goal, setGoal] = useState('');
+  const consultMessage = [
+    'Olá! Gostaria de um atendimento da GVS sobre consórcios.',
+    'Modalidade: ' + interest,
+    creditAmount.trim() ? 'Crédito pretendido: ' + creditAmount.trim() : '',
+    monthlyBudget.trim() ? 'Parcela mensal pretendida: ' + monthlyBudget.trim() : '',
+    goal.trim() ? 'Objetivo: ' + goal.trim() : '',
+    'Gostaria de conhecer as opções disponíveis das administradoras representadas.'
+  ].filter(Boolean).join('\n');
+  const consultUrl = 'https://wa.me/' + company.phone + '?text=' + encodeURIComponent(consultMessage);
 
   return <Layout>
     <section className="hero-gradient text-white overflow-hidden">
@@ -142,6 +154,26 @@ export default function Consorcios() {
       </div>
     </section>
 
+    <section className="py-16 md:py-20 bg-background">
+      <div className="container">
+        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-10 items-center">
+          <div className="rounded-2xl bg-primary text-primary-foreground p-8 md:p-12">
+            <p className="text-accent font-semibold mb-3">O diferencial da GVS</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold leading-tight">Mais opções para você tomar uma boa decisão.</h2>
+            <p className="text-white/85 mt-5 leading-relaxed text-lg">Na GVS, seu planejamento começa com uma conversa. Entendemos o que você deseja conquistar, avaliamos suas necessidades e apresentamos opções disponíveis entre as administradoras que representamos.</p>
+            <p className="text-white/75 mt-4 leading-relaxed">Você pode conhecer alternativas da Embracon, Consórcio União e Consórcio Âncora, conforme os planos e modalidades efetivamente ofertados.</p>
+            <a className="mt-7 inline-flex items-center gap-2 rounded-lg bg-accent text-accent-foreground px-6 py-3 font-semibold hover:brightness-95" href={whatsappUrl('comparar opções de consórcio disponíveis')} target="_blank" rel="noopener noreferrer">Conversar sobre minhas opções <ArrowRight className="w-4 h-4"/></a>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <article className="rounded-xl border p-6 bg-card"><Users className="w-8 h-8 text-accent"/><h3 className="font-serif text-xl font-bold mt-4">Escuta primeiro</h3><p className="text-sm text-muted-foreground mt-2">O atendimento começa pelo seu objetivo, não por uma oferta genérica.</p></article>
+            <article className="rounded-xl border p-6 bg-card"><SearchCheck className="w-8 h-8 text-accent"/><h3 className="font-serif text-xl font-bold mt-4">Opções disponíveis</h3><p className="text-sm text-muted-foreground mt-2">Entenda as alternativas das administradoras representadas.</p></article>
+            <article className="rounded-xl border p-6 bg-card"><FileText className="w-8 h-8 text-accent"/><h3 className="font-serif text-xl font-bold mt-4">Condições explicadas</h3><p className="text-sm text-muted-foreground mt-2">Avalie taxas, prazos, reajustes e regras do grupo antes de decidir.</p></article>
+            <article className="rounded-xl border p-6 bg-card"><ShieldCheck className="w-8 h-8 text-accent"/><h3 className="font-serif text-xl font-bold mt-4">Decisão consciente</h3><p className="text-sm text-muted-foreground mt-2">Sem promessa de contemplação imediata ou prazo garantido.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="py-16 md:py-24">
       <div className="container grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] gap-10 items-center">
         <div>
@@ -154,10 +186,10 @@ export default function Consorcios() {
           <a href={whatsappUrl('um atendimento para avaliar meu objetivo de consórcio')} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground rounded-lg font-semibold px-6 py-3">Conversar sobre meu objetivo <ArrowRight className="w-4 h-4"/></a>
         </div>
         <div className="relative rounded-2xl overflow-hidden min-h-[300px] lg:min-h-[480px]">
-          <img src={houseImage} alt="Fotografia ilustrativa de empreendimento residencial" loading="lazy" className="w-full h-full absolute inset-0 object-cover"/>
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=80" alt="Fotografia ilustrativa de profissionais em reunião de atendimento" loading="lazy" className="w-full h-full absolute inset-0 object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/10 to-transparent" aria-hidden="true"/>
           <div className="relative min-h-[300px] lg:min-h-[480px] flex items-end p-7 md:p-10">
-            <p className="font-serif text-2xl md:text-3xl font-semibold text-white max-w-sm">Seu planejamento merece informação e escolhas conscientes.</p>
+            <p className="font-serif text-2xl md:text-3xl font-semibold text-white max-w-sm">Atendimento para transformar objetivos em escolhas conscientes.</p>
           </div>
         </div>
       </div>
@@ -210,8 +242,14 @@ export default function Consorcios() {
             <select id="objetivo-consorcio" value={interest} onChange={e => setInterest(e.target.value)} className="w-full rounded-lg border border-border bg-background text-foreground p-3">
               {categories.map(item => <option key={item.id} value={item.title}>{item.title}</option>)}
             </select>
-            <a href={whatsappUrl(interest.toLowerCase())} target="_blank" rel="noopener noreferrer" className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg py-3 px-4 font-semibold"><Phone className="w-4 h-4"/> Solicitar atendimento</a>
-            <p className="text-xs text-muted-foreground mt-3">Você será direcionado ao WhatsApp. Nenhuma contratação é feita nesta página.</p>
+            <label htmlFor="credito-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Crédito pretendido (opcional)</label>
+            <input id="credito-consorcio" type="text" inputMode="decimal" maxLength={45} value={creditAmount} onChange={e => setCreditAmount(e.target.value)} placeholder="Ex.: R$ 150.000" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <label htmlFor="parcela-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Parcela mensal confortável (opcional)</label>
+            <input id="parcela-consorcio" type="text" inputMode="decimal" maxLength={45} value={monthlyBudget} onChange={e => setMonthlyBudget(e.target.value)} placeholder="Ex.: R$ 900" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <label htmlFor="objetivo-detalhe" className="block font-semibold mt-4 mb-2 text-sm">Conte um pouco mais (opcional)</label>
+            <textarea id="objetivo-detalhe" rows={3} maxLength={400} value={goal} onChange={e => setGoal(e.target.value)} placeholder="Ex.: pretendo comprar meu primeiro apartamento" className="w-full rounded-lg border border-border bg-background text-foreground p-3 resize-y"/>
+            <a href={consultUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg py-3 px-4 font-semibold"><Phone className="w-4 h-4"/> Preparar conversa no WhatsApp</a>
+            <p className="text-xs text-muted-foreground mt-3">Suas respostas são usadas apenas para preparar a mensagem. Nenhum dado é armazenado neste site. Você pode revisar antes de enviar; não há contratação nesta página.</p>
           </div>
         </div>
         <div className="flex items-start gap-3 mt-7 text-xs text-muted-foreground"><Info className="w-5 h-5 shrink-0 text-accent"/><p>A GVS é representante comercial e não administradora de consórcios. A contemplação ocorre por sorteio ou lance, conforme regras contratuais e disponibilidade de recursos do grupo, sem garantia de prazo. Valores, taxas, reajustes, condições e elegibilidade devem ser conferidos diretamente na proposta e no contrato da administradora.</p></div>

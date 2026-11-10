@@ -16,7 +16,7 @@ type LoginResult = { access_token: string; expires_in: number; refresh_token: st
 async function request<T>(path:string, options: RequestInit = {}, token?:string): Promise<T> {
  const headers = new Headers(options.headers);
  headers.set('apikey', PUBLIC_KEY);
- headers.set('Authorization', 'Bearer ' + (token || PUBLIC_KEY));
+ if (token) headers.set('Authorization', 'Bearer ' + token);
  if (options.body && !(options.body instanceof Blob) && !(options.body instanceof FormData)) headers.set('Content-Type','application/json');
  const res = await fetch(API_URL + path, {...options, headers});
  if (!res.ok) {

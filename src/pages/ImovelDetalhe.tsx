@@ -11,7 +11,7 @@ export default function ImovelDetalhe() {
  const [error,setError]=useState('');
  const [photo,setPhoto]=useState(0);
  const areaLabel=(area:number)=>area.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:2});
- const goToPhoto=(direction:-1|1)=>{ if(!property?.image_urls.length)return; setPhoto(current=>(current+direction+property.image_urls.length)%property.image_urls.length); };
+ const goToPhoto=(direction:-1|1)=>{ const count=property?.image_urls.length??0; if(!count)return; setPhoto(current=>(current+direction+count)%count); };
  const thumbnailPage=Math.floor(photo/5)*5;
  useEffect(()=>{let active=true;setLoading(true);setPhoto(0);getPublicProperty(slug).then(x=>{if(active)setProperty(x)}).catch(e=>{if(active)setError(e.message)}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[slug]);
  return <Layout><div className="container py-10 md:py-14">

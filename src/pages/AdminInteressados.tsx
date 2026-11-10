@@ -64,7 +64,7 @@ export default function AdminInteressados(){
    <p className="text-white/80 mt-3">Organize contatos recebidos, próximas conversas e negociações de imóveis.</p>
  </div></section>
  <main className="container py-10">
-  <Link to="/admin/imoveis" className="inline-flex items-center gap-2 text-primary font-semibold mb-8"><ArrowLeft size={16}/> Voltar aos imóveis</Link>
+  <div className="flex flex-wrap gap-4 mb-8"><Link to="/admin/imoveis" className="inline-flex items-center gap-2 text-primary font-semibold"><ArrowLeft size={16}/> Voltar aos imóveis</Link><Link to="/admin/dashboard" className="inline-flex items-center gap-2 text-primary font-semibold"><CalendarClock size={16}/> Dashboard comercial</Link></div>
   {!authenticated&&<form onSubmit={signIn} className="max-w-lg mx-auto rounded-xl border bg-card p-7 space-y-5">
     <h2 className="font-serif text-2xl font-bold flex items-center gap-2"><ShieldCheck className="text-accent"/> Acesso administrativo</h2>
     <p className="text-muted-foreground text-sm">Entre com sua conta administrativa já autorizada pela GVS.</p>

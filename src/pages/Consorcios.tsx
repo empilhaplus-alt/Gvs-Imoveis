@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import { Link } from 'react-router-dom';
 import { Home, CarFront, Bike, Wrench, BadgeCheck, ArrowRight, Info, CheckCircle2, MessageCircle, ClipboardCheck, Users, ChevronDown, ShieldCheck, CalendarClock, FileText, SearchCheck, Phone, Sparkles } from 'lucide-react';
 import { whatsappUrl } from '@/lib/contact';
 import houseImage from '@/assets/hero-bg.jpg';

@@ -4,7 +4,7 @@ export type InterestStage='novo'|'contatado'|'visita'|'negociacao'|'concluido'|'
 export type InterestSource='whatsapp'|'telefone'|'indicacao'|'outro';
 export type Interest={
  id:string;property_id:string|null;client_name:string;client_phone:string;
- source:InterestSource;stage:InterestStage;notes:string;contact_context:string;
+ source:InterestSource;stage:InterestStage;notes:string;contact_context:string;next_contact_date:string|null;
  created_by:string|null;created_at:string;updated_at:string;
 };
 export type InterestInput=Pick<Interest,'property_id'|'client_name'|'client_phone'|'source'|'stage'|'notes'|'contact_context'>;
@@ -28,7 +28,7 @@ export async function addInterest(data:InterestInput,token:string,userId:string)
 export async function updateInterest(row:Interest,token:string):Promise<Interest>{
  const result=await request<Interest[]>('/rest/v1/gvs_property_interests?id=eq.'+encodeURIComponent(row.id),{
  method:'PATCH',headers:{Prefer:'return=representation'},
- body:JSON.stringify({stage:row.stage,notes:row.notes,updated_at:new Date().toISOString()})
+ body:JSON.stringify({stage:row.stage,notes:row.notes,next_contact_date:row.next_contact_date,updated_at:new Date().toISOString()})
  },token);
  if(!result[0])throw new Error('O registro não foi atualizado.');
  return result[0];

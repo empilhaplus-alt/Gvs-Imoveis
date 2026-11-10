@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
-import { ArrowRight, Building2, Home, MapPin, Search, SlidersHorizontal, CarFront } from 'lucide-react';
-import { listPublicProperties, categoryName, priceLabel, propertyCategories, type Property, type PropertyCategory } from '@/lib/properties';
+import { ArrowRight, Building2, Home, MapPin, Search, SlidersHorizontal } from 'lucide-react';
+import { listPublicProperties, categoryName, priceLabel, propertyCategories, type Property } from '@/lib/properties';
 import { whatsappUrl } from '@/lib/contact';
 
 export default function CatalogoImoveis() {
@@ -48,7 +48,7 @@ export default function CatalogoImoveis() {
      <div className="p-6 flex flex-col flex-1">
       <p className="flex items-center gap-2 text-sm text-muted-foreground"><MapPin className="w-4 h-4"/>{[p.neighborhood,p.city].filter(Boolean).join(' • ')}</p>
       <h3 className="font-serif font-bold text-xl mt-3">{p.title}</h3>
-      <p className="text-sm text-muted-foreground mt-2">{[p.kind,p.bedrooms!=null?p.bedrooms+' quartos':'',p.area_m2!=null?p.area_m2+' m²':''].filter(Boolean).join(' · ')}</p>
+      <p className="text-sm text-muted-foreground mt-2">{[p.kind,p.bedrooms!=null?p.bedrooms+' quartos':'',p.area_m2!=null?p.area_m2.toLocaleString('pt-BR',{maximumFractionDigits:2})+' m²':''].filter(Boolean).join(' · ')}</p>
       <p className="text-primary font-bold text-xl mt-auto pt-5">{priceLabel(p.price)}</p>
       <span className="inline-flex items-center text-primary font-semibold gap-2 mt-4">Ver detalhes <ArrowRight className="w-4 h-4"/></span>
      </div>

@@ -1,12 +1,13 @@
 import Layout from '@/components/layout/Layout';
+import { Link } from 'react-router-dom';
 import { Building2, KeyRound, Construction, ArrowRight, SearchCheck, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
 import { whatsappUrl } from '@/lib/contact';
 import propertyImage from '@/assets/hero-bg.jpg';
 
 const types = [
- { name:'Imóveis novos', icon:Building2, description:'Encontre alternativas de imóveis novos para morar ou investir.', question:'imóveis novos disponíveis' },
- { name:'Imóveis usados', icon:KeyRound, description:'Procure imóveis existentes de acordo com localização, características e orçamento.', question:'imóveis usados disponíveis' },
- { name:'Imóveis na planta', icon:Construction, description:'Conheça lançamentos e empreendimentos em diferentes fases de construção.', question:'imóveis na planta e lançamentos' },
+ { name:'Imóveis novos', icon:Building2, description:'Encontre alternativas de imóveis novos para morar ou investir.', category:'novo' },
+ { name:'Imóveis usados', icon:KeyRound, description:'Procure imóveis existentes de acordo com localização, características e orçamento.', category:'usado' },
+ { name:'Imóveis na planta', icon:Construction, description:'Conheça lançamentos e empreendimentos em diferentes fases de construção.', category:'lancamento' },
 ];
 const steps = [
  { icon:SearchCheck, title:'Conte o que procura', text:'Informe região, tipo de imóvel, faixa de preço e características desejadas.' },
@@ -21,7 +22,7 @@ export default function Lancamentos() {
         <p className="inline-flex bg-white/10 text-accent rounded-full px-4 py-2 font-semibold text-sm mb-6">Intermediação imobiliária</p>
         <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Seu próximo imóvel começa com a escolha certa.</h1>
         <p className="text-white/85 text-lg mt-6 leading-relaxed">A GVS atua na intermediação de compra e venda de imóveis novos, usados e na planta. Conte com atendimento para encontrar oportunidades alinhadas ao seu objetivo.</p>
-        <a href={whatsappUrl('encontrar um imóvel para comprar')} target="_blank" rel="noopener noreferrer" className="inline-flex gap-2 items-center rounded-lg bg-accent text-accent-foreground font-semibold px-6 py-3 mt-8">Quero encontrar um imóvel <ArrowRight className="w-4 h-4"/></a>
+        <Link to="/imoveis/ofertas" className="inline-flex gap-2 items-center rounded-lg bg-accent text-accent-foreground font-semibold px-6 py-3 mt-8">Ver imóveis disponíveis <ArrowRight className="w-4 h-4"/></Link>
       </div>
       <div className="overflow-hidden rounded-2xl shadow-xl"><img src={propertyImage} alt="Fotografia ilustrativa de empreendimento imobiliário" className="w-full h-64 sm:h-80 lg:h-[420px] object-cover" decoding="async"/></div>
     </div>
@@ -36,7 +37,7 @@ export default function Lancamentos() {
           <item.icon className="text-accent w-10 h-10"/>
           <h3 className="font-serif text-2xl font-bold mt-5">{item.name}</h3>
           <p className="text-muted-foreground mt-3 leading-relaxed flex-1">{item.description}</p>
-          <a href={whatsappUrl(item.question)} target="_blank" rel="noopener noreferrer" className="inline-flex gap-2 items-center font-semibold text-primary mt-7 hover:underline">Consultar opções <ArrowRight className="w-4 h-4"/></a>
+          <Link to={"/imoveis/ofertas?tipo="+item.category} className="inline-flex gap-2 items-center font-semibold text-primary mt-7 hover:underline">Ver imóveis disponíveis <ArrowRight className="w-4 h-4"/></Link>
         </article>)}
       </div>
       <p className="text-xs text-muted-foreground mt-5">As imagens são ilustrativas. Imóveis, preços e condições dependem de confirmação de disponibilidade.</p>

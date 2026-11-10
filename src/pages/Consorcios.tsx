@@ -55,16 +55,24 @@ const questions = [
   { q: 'O que devo conferir antes de contratar?', a: 'Verifique se a administradora está autorizada a funcionar, leia o contrato e regulamento, confira o valor total do plano, as regras de reajuste, de contemplação e de restituição.' },
 ];
 
+// Valores informados em reais inteiros; nunca guardar dados financeiros no navegador.
+const formatMoney = (digits: string) => digits
+  ? new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(digits))
+  : '';
+const onlyDigits = (value: string) => value.replace(/\D/g, '').slice(0, 12);
+
 export default function Consorcios() {
   const [interest, setInterest] = useState('Consórcio de imóveis');
   const [creditAmount, setCreditAmount] = useState('');
   const [monthlyBudget, setMonthlyBudget] = useState('');
   const [goal, setGoal] = useState('');
+  const [desiredTimeframe, setDesiredTimeframe] = useState('');
   const consultMessage = [
     'Olá! Gostaria de um atendimento da GVS sobre consórcios.',
     'Modalidade: ' + interest,
-    creditAmount.trim() ? 'Crédito pretendido: ' + creditAmount.trim() : '',
-    monthlyBudget.trim() ? 'Parcela mensal pretendida: ' + monthlyBudget.trim() : '',
+    creditAmount ? 'Crédito pretendido: ' + formatMoney(creditAmount) : '',
+    monthlyBudget ? 'Parcela mensal pretendida: ' + formatMoney(monthlyBudget) : '',
+    desiredTimeframe ? 'Prazo desejado: ' + desiredTimeframe + ' (expectativa, sem garantia de contemplação)' : '',
     goal.trim() ? 'Objetivo: ' + goal.trim() : '',
     'Gostaria de conhecer as opções disponíveis das administradoras representadas.'
   ].filter(Boolean).join('\n');
@@ -243,9 +251,19 @@ export default function Consorcios() {
               {categories.map(item => <option key={item.id} value={item.title}>{item.title}</option>)}
             </select>
             <label htmlFor="credito-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Crédito pretendido (opcional)</label>
-            <input id="credito-consorcio" type="text" inputMode="decimal" maxLength={45} value={creditAmount} onChange={e => setCreditAmount(e.target.value)} placeholder="Ex.: R$ 150.000" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <input id="credito-consorcio" type="text" inputMode="decimal" maxLength={25} value={formatMoney(creditAmount)} onChange={e => setCreditAmount(onlyDigits(e.target.value))} placeholder="Ex.: R$ 150.000" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
             <label htmlFor="parcela-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Parcela mensal confortável (opcional)</label>
-            <input id="parcela-consorcio" type="text" inputMode="decimal" maxLength={45} value={monthlyBudget} onChange={e => setMonthlyBudget(e.target.value)} placeholder="Ex.: R$ 900" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <input id="parcela-consorcio" type="text" inputMode="decimal" maxLength={25} value={formatMoney(monthlyBudget)} onChange={e => setMonthlyBudget(onlyDigits(e.target.value))} placeholder="Ex.: R$ 900" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <label htmlFor="prazo-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Quando você pretende adquirir o bem? (opcional)</label>
+            <select id="prazo-consorcio" value={desiredTimeframe} onChange={e => setDesiredTimeframe(e.target.value)} className="w-full rounded-lg border border-border bg-background text-foreground p-3">
+              <option value="">Prefiro não informar</option>
+              <option value="Até 6 meses">Até 6 meses</option>
+              <option value="De 6 a 12 meses">De 6 a 12 meses</option>
+              <option value="De 1 a 2 anos">De 1 a 2 anos</option>
+              <option value="Mais de 2 anos">Mais de 2 anos</option>
+              <option value="Sem prazo definido">Sem prazo definido</option>
+            </select>
+            <p className="mt-2 text-xs text-muted-foreground">Esse prazo serve apenas para orientar o atendimento. Não representa previsão ou garantia de contemplação.</p>
             <label htmlFor="objetivo-detalhe" className="block font-semibold mt-4 mb-2 text-sm">Conte um pouco mais (opcional)</label>
             <textarea id="objetivo-detalhe" rows={3} maxLength={400} value={goal} onChange={e => setGoal(e.target.value)} placeholder="Ex.: pretendo comprar meu primeiro apartamento" className="w-full rounded-lg border border-border bg-background text-foreground p-3 resize-y"/>
             <a href={consultUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg py-3 px-4 font-semibold"><Phone className="w-4 h-4"/> Preparar conversa no WhatsApp</a>

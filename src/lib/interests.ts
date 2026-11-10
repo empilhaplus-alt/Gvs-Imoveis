@@ -7,7 +7,7 @@ export type Interest={
  source:InterestSource;stage:InterestStage;notes:string;contact_context:string;next_contact_date:string|null;
  created_by:string|null;created_at:string;updated_at:string;
 };
-export type InterestInput=Pick<Interest,'property_id'|'client_name'|'client_phone'|'source'|'stage'|'notes'|'contact_context'>;
+export type InterestInput=Pick<Interest,'property_id'|'client_name'|'client_phone'|'source'|'stage'|'notes'|'contact_context'|'next_contact_date'>;
 export const interestStages:{value:InterestStage;label:string}[]=[
  {value:'novo',label:'Novo'}, {value:'contatado',label:'Contatado'}, {value:'visita',label:'Visita agendada'},
  {value:'negociacao',label:'Negociação'}, {value:'concluido',label:'Concluído'}, {value:'encerrado',label:'Encerrado'},

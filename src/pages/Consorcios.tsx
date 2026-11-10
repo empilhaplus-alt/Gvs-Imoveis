@@ -65,6 +65,8 @@ export default function Consorcios() {
   const [interest, setInterest] = useState('Consórcio de imóveis');
   const [creditAmount, setCreditAmount] = useState('');
   const [monthlyBudget, setMonthlyBudget] = useState('');
+  const [creditFocused, setCreditFocused] = useState(false);
+  const [budgetFocused, setBudgetFocused] = useState(false);
   const [goal, setGoal] = useState('');
   const [desiredTimeframe, setDesiredTimeframe] = useState('');
   const consultMessage = [
@@ -99,7 +101,7 @@ export default function Consorcios() {
                 if (!img.src.endsWith('/gvs-consorcios-ilustracao.svg')) img.src = '/gvs-consorcios-ilustracao.svg';
               }}
               alt="Ilustração com casa, automóvel, motocicleta e ferramentas representando serviços"
-              width="700" height="700" decoding="async" fetchPriority="high"
+              width="700" height="700" decoding="async"
               className="block w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>
@@ -251,9 +253,9 @@ export default function Consorcios() {
               {categories.map(item => <option key={item.id} value={item.title}>{item.title}</option>)}
             </select>
             <label htmlFor="credito-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Crédito pretendido (opcional)</label>
-            <input id="credito-consorcio" type="text" inputMode="decimal" maxLength={25} value={formatMoney(creditAmount)} onChange={e => setCreditAmount(onlyDigits(e.target.value))} placeholder="Ex.: R$ 150.000" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <input id="credito-consorcio" type="text" inputMode="decimal" maxLength={25} value={creditFocused ? creditAmount : formatMoney(creditAmount)} onFocus={() => setCreditFocused(true)} onBlur={() => setCreditFocused(false)} onChange={e => setCreditAmount(onlyDigits(e.target.value))} placeholder="Ex.: R$ 150.000" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
             <label htmlFor="parcela-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Parcela mensal confortável (opcional)</label>
-            <input id="parcela-consorcio" type="text" inputMode="decimal" maxLength={25} value={formatMoney(monthlyBudget)} onChange={e => setMonthlyBudget(onlyDigits(e.target.value))} placeholder="Ex.: R$ 900" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
+            <input id="parcela-consorcio" type="text" inputMode="decimal" maxLength={25} value={budgetFocused ? monthlyBudget : formatMoney(monthlyBudget)} onFocus={() => setBudgetFocused(true)} onBlur={() => setBudgetFocused(false)} onChange={e => setMonthlyBudget(onlyDigits(e.target.value))} placeholder="Ex.: R$ 900" className="w-full rounded-lg border border-border bg-background text-foreground p-3"/>
             <label htmlFor="prazo-consorcio" className="block font-semibold mt-4 mb-2 text-sm">Quando você pretende adquirir o bem? (opcional)</label>
             <select id="prazo-consorcio" value={desiredTimeframe} onChange={e => setDesiredTimeframe(e.target.value)} className="w-full rounded-lg border border-border bg-background text-foreground p-3">
               <option value="">Prefiro não informar</option>

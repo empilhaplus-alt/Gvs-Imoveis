@@ -7,27 +7,27 @@ import houseImage from '@/assets/hero-bg.jpg';
 const categories = [
   {
     id: 'imoveis', title: 'Consórcio de imóveis', icon: Home, kicker: 'Morar ou investir',
-    description: 'Para quem deseja planejar a compra de uma casa, apartamento ou outro imóvel elegível.',
+    description: 'Sua casa própria, um apartamento maior ou um imóvel para investir: comece entendendo quanto crédito faz sentido para seu plano.',
     detail: 'O tipo de imóvel, a utilização do crédito e as condições dependem das regras contratuais.',
     image: houseImage, alt: 'Fotografia ilustrativa de imóvel residencial',
   },
   {
     id: 'automoveis', title: 'Consórcio de automóveis', icon: CarFront, kicker: 'Seu próximo carro',
-    description: 'Uma alternativa para organizar a compra de um automóvel sem depender de uma aquisição imediata.',
+    description: 'Quer sair com o seu próximo carro no futuro? Conheça uma forma de organizar crédito e parcelas sem improvisar a compra.',
     detail: 'Consulte os modelos elegíveis, o crédito e as condições de cada grupo.',
     image: 'https://images.unsplash.com/photo-1758411898423-f8a6062a7b8d?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8&ixlib=rb-4.1.0&q=70&w=900',
     alt: 'Fotografia ilustrativa de automóvel branco',
   },
   {
     id: 'motocicletas', title: 'Consórcio de motocicletas', icon: Bike, kicker: 'Sua próxima moto',
-    description: 'Conheça possibilidades para planejar a aquisição de uma motocicleta.',
+    description: 'Quer trocar ou comprar sua moto? Avalie opções de crédito para preparar essa conquista.',
     detail: 'A elegibilidade do bem depende da modalidade e do regulamento do grupo.',
     image: 'https://images.unsplash.com/photo-1640987293202-65edb38868d3?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=70&w=900',
     alt: 'Fotografia ilustrativa de motocicleta',
   },
   {
     id: 'servicos', title: 'Consórcio de serviços', icon: Wrench, kicker: 'Projetos que saem do papel',
-    description: 'Planeje a contratação de serviços que estejam previstos na categoria do grupo.',
+    description: 'Tire projetos do papel: conheça planos para serviços elegíveis e entenda as regras antes de contratar.',
     detail: 'Informe o serviço desejado para verificarmos as opções e regras disponíveis.',
     image: 'https://images.unsplash.com/photo-1505798577917-a65157d3320a?fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9tZSUyMHJlcGFpcnxlbnwwfHwwfHx8MA%3D%3D&ixlib=rb-4.1.0&q=70&w=900',
     alt: 'Fotografia ilustrativa de profissionais realizando um serviço',
@@ -41,9 +41,9 @@ const administrators = [
 ];
 
 const steps = [
-  { number: '01', title: 'Converse sobre seu objetivo', text: 'Conte o que deseja adquirir e qual parcela cabe no seu planejamento.', icon: Users },
-  { number: '02', title: 'Compare as condições', text: 'Avalie crédito, duração, taxa de administração e demais custos previstos.', icon: SearchCheck },
-  { number: '03', title: 'Conheça as regras do grupo', text: 'Entenda as assembleias, o sorteio, os lances e o regulamento antes de aderir.', icon: FileText },
+  { number: '01', title: 'Conte o que quer conquistar', text: 'Explique o bem desejado e a parcela que você conseguiria manter com tranquilidade.', icon: Users },
+  { number: '02', title: 'Veja planos e custos lado a lado', text: 'Compare carta de crédito, prazo, parcela inicial, taxa de administração e reajustes.', icon: SearchCheck },
+  { number: '03', title: 'Saiba exatamente como funciona', text: 'Entenda sorteios, lances, assembleias, obrigações e regras do grupo antes de assinar.', icon: FileText },
   { number: '04', title: 'Planeje a utilização do crédito', text: 'Após a contemplação e o atendimento das exigências, o crédito pode ser utilizado conforme o contrato.', icon: CalendarClock },
 ];
 
@@ -86,11 +86,11 @@ export default function Consorcios() {
         <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-8 xl:gap-12 items-center">
           <div className="min-w-0">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 text-accent px-4 py-2 text-sm font-semibold mb-6"><BadgeCheck className="w-4 h-4"/> Representação comercial</div>
-            <h1 className="font-serif text-4xl md:text-5xl xl:text-[3.25rem] font-bold leading-[1.12]">Consórcios para planejar suas <span className="text-accent">próximas conquistas</span></h1>
-            <p className="text-base sm:text-lg mt-6 text-white/85 leading-relaxed">Planeje suas conquistas com quem mais entende de consórcios. A GVS oferece atendimento personalizado para ajudar você a encontrar o plano mais adequado aos seus objetivos. Somos representantes da Embracon, Consórcio União e Consórcio Âncora.</p>
+            <h1 className="font-serif text-4xl md:text-5xl xl:text-[3.25rem] font-bold leading-[1.12]">Seu próximo imóvel, carro ou projeto começa com <span className="text-accent">um plano que cabe na sua vida.</span></h1>
+            <p className="text-base sm:text-lg mt-6 text-white/85 leading-relaxed">Quer comprar sem agir por impulso? Conte o que deseja conquistar e quanto pode comprometer por mês. A GVS apresenta opções de consórcios de imóveis, carros, motos e serviços, explicando créditos, taxas, prazos e as condições de cada administradora. Atendimento com experiência comercial de mais de 20 anos no mercado.</p>
             <div className="flex flex-wrap gap-3 mt-8">
-              <a className="inline-flex items-center justify-center bg-accent text-accent-foreground rounded-lg py-3 px-5 font-semibold hover:brightness-95" href={whatsappUrl('consórcios')} target="_blank" rel="noopener noreferrer">Falar com um representante <ArrowRight className="w-4 h-4 ml-2"/></a>
-              <a href="#modalidades" className="inline-flex items-center rounded-lg border border-white/50 px-5 py-3 font-semibold hover:bg-white/10">Ver modalidades</a>
+              <a className="inline-flex items-center justify-center bg-accent text-accent-foreground rounded-lg py-3 px-5 font-semibold hover:brightness-95" href={whatsappUrl('consórcios')} target="_blank" rel="noopener noreferrer">Quero comparar planos com a GVS <ArrowRight className="w-4 h-4 ml-2"/></a>
+              <a href="https://mci-consorcio.epsacore.com.br/p/gvsimoveis" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-lg border border-white/50 px-5 py-3 font-semibold hover:bg-white/10">Descobrir meu perfil gratuitamente</a>
             </div>
           </div>
           <div className="relative w-full max-w-[480px] mx-auto lg:max-w-none lg:justify-self-end">
@@ -111,7 +111,7 @@ export default function Consorcios() {
 
     <section className="bg-primary text-white border-t border-white/10">
       <div className="container py-5 grid sm:grid-cols-3 gap-4 sm:gap-6">
-        <p className="flex gap-3 items-center text-sm"><ShieldCheck className="text-accent w-6 h-6 shrink-0"/> Intermediação por representante comercial</p>
+        <p className="flex gap-3 items-center text-sm"><ShieldCheck className="text-accent w-6 h-6 shrink-0"/> Orientação de profissionais experientes</p>
         <p className="flex gap-3 items-center text-sm"><ClipboardCheck className="text-accent w-6 h-6 shrink-0"/> Análise das condições antes da adesão</p>
         <p className="flex gap-3 items-center text-sm"><MessageCircle className="text-accent w-6 h-6 shrink-0"/> Atendimento por assunto no WhatsApp</p>
       </div>
@@ -120,9 +120,9 @@ export default function Consorcios() {
     <section id="modalidades" className="py-16 md:py-24 scroll-mt-24">
       <div className="container">
         <div className="max-w-3xl mb-11">
-          <p className="text-accent font-semibold mb-2">Um plano para cada objetivo</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold">O que você quer conquistar?</h2>
-          <p className="text-muted-foreground mt-4 text-lg">Conheça as modalidades, explore possibilidades e fale diretamente com um representante da GVS.</p>
+          <p className="text-accent font-semibold mb-2">Sua conquista merece um plano</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold">O que você quer realizar nos próximos anos?</h2>
+          <p className="text-muted-foreground mt-4 text-lg">Escolha seu objetivo e veja por onde começar. Você não precisa decidir sozinho nem aceitar uma parcela sem conhecer todas as condições.</p>
         </div>
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {categories.map((item) => <article key={item.id} className="group bg-card rounded-2xl border overflow-hidden shadow-sm hover:shadow-xl transition-shadow flex flex-col">
@@ -135,7 +135,7 @@ export default function Consorcios() {
               <h3 className="font-serif text-2xl font-bold">{item.title}</h3>
               <p className="text-muted-foreground leading-relaxed mt-3">{item.description}</p>
               <p className="text-sm text-muted-foreground mt-4 flex gap-2"><CheckCircle2 className="text-accent w-5 h-5 shrink-0"/>{item.detail}</p>
-              <a href={whatsappUrl(item.title.toLowerCase())} target="_blank" rel="noopener noreferrer" className="mt-auto pt-6 font-semibold text-primary inline-flex gap-2 items-center hover:underline">Consultar opções <ArrowRight className="w-4 h-4"/></a>
+              <a href={whatsappUrl(item.title.toLowerCase())} target="_blank" rel="noopener noreferrer" className="mt-auto pt-6 font-semibold text-primary inline-flex gap-2 items-center hover:underline">Quero conhecer as opções <ArrowRight className="w-4 h-4"/></a>
             </div>
           </article>)}
         </div>
@@ -146,9 +146,9 @@ export default function Consorcios() {
     <section className="py-16 md:py-24 bg-secondary/60">
       <div className="container">
         <div className="max-w-3xl mb-12">
-          <p className="text-accent font-semibold mb-2">Entenda antes de decidir</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold">Como funciona o consórcio?</h2>
-          <p className="text-muted-foreground text-lg mt-4">Consórcio é uma modalidade de autofinanciamento em grupo. A administradora organiza o grupo e a contemplação ocorre conforme o contrato, por sorteio ou lance.</p>
+          <p className="text-accent font-semibold mb-2">Entenda antes de assinar</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold">Como funciona — e o que ninguém deve prometer?</h2>
+          <p className="text-muted-foreground text-lg mt-4">Você participa de um grupo de autofinanciamento administrado por empresa autorizada. A aquisição com crédito depende da contemplação por sorteio ou lance. Conheça também as taxas e reajustes do contrato.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((step) => <article key={step.number} className="rounded-xl bg-background border p-6">
@@ -169,7 +169,7 @@ export default function Consorcios() {
         <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-10 items-center">
           <div className="rounded-2xl bg-primary text-primary-foreground p-8 md:p-12">
             <p className="text-accent font-semibold mb-3">O diferencial da GVS</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold leading-tight">Mais opções para você tomar uma boa decisão.</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold leading-tight">Compare caminhos para escolher com mais segurança.</h2>
             <p className="text-white/85 mt-5 leading-relaxed text-lg">Na GVS, seu planejamento começa com uma conversa. Entendemos o que você deseja conquistar, avaliamos suas necessidades e apresentamos opções disponíveis entre as administradoras que representamos.</p>
             <p className="text-white/75 mt-4 leading-relaxed">Você pode conhecer alternativas da Embracon, Consórcio União e Consórcio Âncora, conforme os planos e modalidades efetivamente ofertados.</p>
             <a className="mt-7 inline-flex items-center gap-2 rounded-lg bg-accent text-accent-foreground px-6 py-3 font-semibold hover:brightness-95" href={whatsappUrl('comparar opções de consórcio disponíveis')} target="_blank" rel="noopener noreferrer">Conversar sobre minhas opções <ArrowRight className="w-4 h-4"/></a>
@@ -188,7 +188,7 @@ export default function Consorcios() {
       <div className="container grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] gap-10 items-center">
         <div>
           <p className="text-accent font-semibold mb-2">Atendimento que começa ouvindo você</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold">Não é só escolher uma parcela. É entender seu objetivo.</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold">Uma parcela só é boa quando combina com seu orçamento.</h2>
           <p className="text-muted-foreground text-lg leading-relaxed mt-5">Comprar um imóvel, trocar de carro ou realizar um projeto são decisões diferentes. Por isso, a conversa começa pelo valor de crédito, pelo prazo desejado e pela sua capacidade de pagamento.</p>
           <ul className="mt-7 space-y-4">
             {['Qual bem ou serviço você pretende adquirir?', 'Qual valor de crédito faz sentido para seu plano?', 'Quanto você pode comprometer por mês?', 'O que você precisa saber sobre prazo, lance e contemplação?'].map(q => <li key={q} className="flex gap-3 items-start"><CheckCircle2 className="text-accent shrink-0 w-5 h-5 mt-0.5"/><span>{q}</span></li>)}
@@ -199,7 +199,7 @@ export default function Consorcios() {
           <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=80" alt="Fotografia ilustrativa de profissionais em reunião de atendimento" loading="lazy" className="w-full h-full absolute inset-0 object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/10 to-transparent" aria-hidden="true"/>
           <div className="relative min-h-[300px] lg:min-h-[480px] flex items-end p-7 md:p-10">
-            <p className="font-serif text-2xl md:text-3xl font-semibold text-white max-w-sm">Atendimento para transformar objetivos em escolhas conscientes.</p>
+            <p className="font-serif text-2xl md:text-3xl font-semibold text-white max-w-sm">O primeiro passo é descobrir o que realmente faz sentido para você.</p>
           </div>
         </div>
       </div>
@@ -226,7 +226,7 @@ export default function Consorcios() {
 
     <section className="py-16 md:py-24">
       <div className="container grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-10">
-        <div><p className="text-accent font-semibold mb-2">Perguntas frequentes</p><h2 className="font-serif text-3xl md:text-4xl font-bold">Consórcio sem dúvidas</h2><p className="text-muted-foreground mt-4">Respostas para ajudar você a avaliar uma proposta com clareza.</p>
+        <div><p className="text-accent font-semibold mb-2">Perguntas frequentes</p><h2 className="font-serif text-3xl md:text-4xl font-bold">Respostas para decidir com mais confiança</h2><p className="text-muted-foreground mt-4">Respostas para ajudar você a avaliar uma proposta com clareza.</p>
           <a href="https://www.bcb.gov.br/meubc/faqs/s/consorcio" target="_blank" rel="noopener noreferrer" className="inline-flex gap-2 text-primary font-semibold mt-6 hover:underline">Consultar orientações do Banco Central <ArrowRight className="w-4 h-4"/></a>
         </div>
         <div className="space-y-3">
@@ -243,12 +243,12 @@ export default function Consorcios() {
         <div className="hero-gradient text-white rounded-2xl p-7 md:p-12 grid lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.7fr)] items-center gap-9">
           <div>
             <p className="text-accent font-semibold mb-3 flex items-center gap-2"><Sparkles className="w-5 h-5"/> Vamos conversar?</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Sua próxima conquista começa com um bom planejamento.</h2>
-            <p className="text-white/85 mt-5 leading-relaxed">Escolha o que procura e fale com a GVS. Um representante poderá apresentar as modalidades e condições disponíveis para avaliação.</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold">A sua conquista merece sair do papel — com um plano pensado para você.</h2>
+            <p className="text-white/85 mt-5 leading-relaxed">Escolha seu objetivo, informe uma parcela confortável e peça à GVS uma comparação inicial das opções disponíveis. Sem obrigação de contratar.</p>
             <div className="flex flex-wrap gap-4 mt-7 text-sm text-white/85"><span className="flex items-center gap-2"><ClipboardCheck className="w-5 h-5 text-accent"/> Informações claras</span><span className="flex items-center gap-2"><Users className="w-5 h-5 text-accent"/> Atendimento personalizado</span></div>
           </div>
           <div className="bg-white text-foreground rounded-2xl p-6 md:p-8">
-            <label htmlFor="objetivo-consorcio" className="block font-semibold mb-3">Qual é o seu objetivo?</label>
+            <label htmlFor="objetivo-consorcio" className="block font-semibold mb-3">O que você quer conquistar?</label>
             <select id="objetivo-consorcio" value={interest} onChange={e => setInterest(e.target.value)} className="w-full rounded-lg border border-border bg-background text-foreground p-3">
               {categories.map(item => <option key={item.id} value={item.title}>{item.title}</option>)}
             </select>
@@ -268,7 +268,7 @@ export default function Consorcios() {
             <p className="mt-2 text-xs text-muted-foreground">Esse prazo serve apenas para orientar o atendimento. Não representa previsão ou garantia de contemplação.</p>
             <label htmlFor="objetivo-detalhe" className="block font-semibold mt-4 mb-2 text-sm">Conte um pouco mais (opcional)</label>
             <textarea id="objetivo-detalhe" rows={3} maxLength={400} value={goal} onChange={e => setGoal(e.target.value)} placeholder="Ex.: pretendo comprar meu primeiro apartamento" className="w-full rounded-lg border border-border bg-background text-foreground p-3 resize-y"/>
-            <a href={consultUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg py-3 px-4 font-semibold"><Phone className="w-4 h-4"/> Preparar conversa no WhatsApp</a>
+            <a href={consultUrl} target="_blank" rel="noopener noreferrer" className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg py-3 px-4 font-semibold"><Phone className="w-4 h-4"/> Quero receber opções no WhatsApp</a>
             <p className="text-xs text-muted-foreground mt-3">Suas respostas são usadas apenas para preparar a mensagem. Nenhum dado é armazenado neste site. Você pode revisar antes de enviar; não há contratação nesta página.</p>
           </div>
         </div>

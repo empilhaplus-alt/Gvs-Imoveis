@@ -20,12 +20,12 @@ export default function CatalogoImoveis() {
   <section className="hero-gradient text-white py-12 md:py-20">
    <div className="container">
     <p className="text-accent font-semibold mb-3">GVS Imóveis • Portfólio</p>
-    <h1 className="font-serif font-bold text-4xl md:text-5xl">Encontre o imóvel para seu próximo capítulo.</h1>
-    <p className="text-white/85 text-lg mt-5 max-w-3xl">Explore imóveis novos, usados e lançamentos publicados pela GVS. Veja os detalhes e depois converse com um consultor sobre a oferta que mais interessou.</p>
+    <h1 className="font-serif font-bold text-4xl md:text-5xl">Seu próximo imóvel pode estar aqui. Comece a procurar.</h1>
+    <p className="text-white/85 text-lg mt-5 max-w-3xl">Filtre por bairro, cidade ou tipo de imóvel. Escolha as opções que chamarem sua atenção e fale com a GVS para confirmar valores, disponibilidade e condições.</p>
    </div>
   </section>
   <section className="container py-12 md:py-16">
-   <div className="flex gap-3 items-center mb-6"><SlidersHorizontal className="text-accent"/><h2 className="font-serif font-bold text-2xl">Imóveis disponíveis</h2></div>
+   <div className="flex gap-3 items-center mb-6"><SlidersHorizontal className="text-accent"/><h2 className="font-serif font-bold text-2xl">Encontre as opções que combinam com você</h2></div>
    <div className="flex flex-col md:flex-row gap-3 mb-8">
     <label className="flex items-center gap-3 border rounded-xl px-4 flex-1 bg-background"><Search className="w-5 h-5 text-muted-foreground"/><span className="sr-only">Buscar por bairro, cidade ou imóvel</span><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Buscar por bairro, cidade ou imóvel" className="py-3 w-full outline-none bg-transparent" /></label>
     <label className="sr-only" htmlFor="filtro-categoria">Categoria</label>
@@ -50,11 +50,11 @@ export default function CatalogoImoveis() {
       <h3 className="font-serif font-bold text-xl mt-3">{p.title}</h3>
       <p className="text-sm text-muted-foreground mt-2">{[p.kind,p.bedrooms!=null?p.bedrooms+' quartos':'',p.area_m2!=null?p.area_m2.toLocaleString('pt-BR',{maximumFractionDigits:2})+' m²':''].filter(Boolean).join(' · ')}</p>
       <p className="text-primary font-bold text-xl mt-auto pt-5">{priceLabel(p.price)}</p>
-      <span className="inline-flex items-center text-primary font-semibold gap-2 mt-4">Ver detalhes <ArrowRight className="w-4 h-4"/></span>
+      <span className="inline-flex items-center text-primary font-semibold gap-2 mt-4">Conhecer este imóvel <ArrowRight className="w-4 h-4"/></span>
      </div>
     </Link>)}
    </div>}
   </section>
-  <section className="bg-secondary/60 py-12"><div className="container flex flex-col md:flex-row gap-4 items-center justify-between"><div><h2 className="font-serif font-bold text-2xl">Ainda não encontrou o que procura?</h2><p className="text-muted-foreground mt-2">Converse sobre bairro, orçamento e características desejadas.</p></div><a href={whatsappUrl('um imóvel com características específicas')} target="_blank" rel="noopener noreferrer" className="bg-primary text-white rounded-lg px-6 py-3 font-semibold">Falar com a GVS</a></div></section>
+  <section className="bg-secondary/60 py-12"><div className="container flex flex-col md:flex-row gap-4 items-center justify-between"><div><h2 className="font-serif font-bold text-2xl">Não apareceu o imóvel ideal? A busca não precisa terminar aqui.</h2><p className="text-muted-foreground mt-2">Conte a região, o orçamento e o que você não abre mão. A GVS pode orientar sua próxima busca.</p></div><a href={whatsappUrl('um imóvel com características específicas')} target="_blank" rel="noopener noreferrer" className="bg-primary text-white rounded-lg px-6 py-3 font-semibold">Quero ajuda para encontrar meu imóvel</a></div></section>
  </Layout>;
 }

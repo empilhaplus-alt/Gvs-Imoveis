@@ -57,15 +57,15 @@ export default function ImovelDetalhe() {
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
       {[{Icon:BedDouble,value:property.bedrooms,label:'Quartos'},{Icon:Bath,value:property.bathrooms,label:'Banheiros'},{Icon:CarFront,value:property.parking,label:'Vagas'},{Icon:Maximize2,value:property.area_m2,label:'Área em m²'}].filter(x=>x.value!=null).map(x=><div key={x.label} className="rounded-xl border p-4"><x.Icon className="text-accent w-6 h-6"/><p className="text-xl font-bold mt-2">{x.label==='Área em m²'?areaLabel(x.value as number):x.value}</p><p className="text-sm text-muted-foreground">{x.label}</p></div>)}
     </div>
-    <h2 className="font-serif text-2xl font-bold mt-9">Sobre o imóvel</h2>
-    <div className="mt-4 text-muted-foreground leading-relaxed space-y-4 max-w-prose">{(property.description?.trim()||'Solicite mais detalhes com nossa equipe.').split(/\n\s*\n/).filter(Boolean).map((paragraph,i)=><p key={i} className="whitespace-pre-line">{paragraph.trim()}</p>)}</div>
+    <h2 className="font-serif text-2xl font-bold mt-9">Imagine seu próximo capítulo aqui</h2>
+    <div className="mt-4 text-muted-foreground leading-relaxed space-y-4 max-w-prose">{(property.description?.trim()||'Quer saber mais sobre este imóvel? Fale com a GVS para esclarecer detalhes, condições e disponibilidade.').split(/\n\s*\n/).filter(Boolean).map((paragraph,i)=><p key={i} className="whitespace-pre-line">{paragraph.trim()}</p>)}</div>
     {property.highlights.length>0&&<><h2 className="font-serif text-2xl font-bold mt-9">Destaques</h2><ul className="mt-4 grid sm:grid-cols-2 gap-3">{property.highlights.map((h,i)=><li key={i} className="flex gap-3 items-start rounded-xl bg-secondary/60 p-4 text-muted-foreground"><span aria-hidden="true" className="mt-1 w-2 h-2 rounded-full bg-accent shrink-0"/>{h}</li>)}</ul></>}
    </div>
    <aside className="lg:sticky lg:top-28 self-start rounded-2xl border bg-card p-7 shadow-sm">
     <p className="text-sm text-muted-foreground">Valor anunciado</p><p className="font-serif font-bold text-3xl text-primary mt-2">{priceLabel(property.price)}</p>
     <p className="mt-5 text-muted-foreground text-sm">Código da oferta: {property.id.slice(0,8).toUpperCase()}</p>
-    <a href={whatsappUrl('o imóvel '+property.title+' (código '+property.id.slice(0,8).toUpperCase()+')')} target="_blank" rel="noopener noreferrer" className="mt-6 bg-accent text-accent-foreground rounded-lg px-5 py-4 w-full inline-flex justify-center items-center font-semibold gap-2"><MessageCircle className="w-5 h-5"/> Tenho interesse neste imóvel</a>
-    <p className="mt-5 text-xs text-muted-foreground leading-relaxed">Confirme disponibilidade, documentação, preço e condições com a equipe antes de qualquer compromisso.</p>
+    <a href={whatsappUrl('o imóvel '+property.title+' (código '+property.id.slice(0,8).toUpperCase()+')')} target="_blank" rel="noopener noreferrer" className="mt-6 bg-accent text-accent-foreground rounded-lg px-5 py-4 w-full inline-flex justify-center items-center font-semibold gap-2"><MessageCircle className="w-5 h-5"/> Quero saber mais sobre este imóvel</a>
+    <p className="mt-5 text-xs text-muted-foreground leading-relaxed">Gostou do imóvel? Converse com a GVS para confirmar disponibilidade, preço, documentação e condições antes de decidir.</p>
    </aside>
   </div>
  </>}

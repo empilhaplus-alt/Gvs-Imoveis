@@ -31,7 +31,7 @@ export default function Index() {
               Quer comprar um imóvel, trocar de carro ou construir patrimônio? A GVS ajuda você a conhecer opções de imóveis e consórcios, comparar condições e escolher o próximo passo com confiança.
             </p>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/75">
-              Atendimento com experiência comercial de mais de 20 anos no mercado de consórcios. Sem promessas de contemplação: com orientação e condições explicadas.
+              Conte com mais de 20 anos de experiência comercial no mercado de consórcios. Descubra possibilidades de crédito, sorteio e lance para o seu próximo passo.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a href={whatsappUrl('ajuda para planejar a compra de um imóvel')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 font-bold text-accent-foreground transition hover:brightness-95">
@@ -41,7 +41,7 @@ export default function Index() {
                 Conhecer consórcios <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <p className="mt-4 text-xs text-white/70">Comece com uma conversa. A contratação depende da análise das condições e do contrato.</p>
+            <p className="mt-4 text-xs text-white/70">Comece com uma conversa simples para descobrir suas possibilidades, sem compromisso.</p>
           </div>
           <div className="overflow-hidden rounded-2xl shadow-2xl">
             <img src={heroImage} alt="Imagem ilustrativa de empreendimento residencial" className="h-[340px] w-full object-cover lg:h-[470px]" />
@@ -71,7 +71,7 @@ export default function Index() {
               <div className="flex flex-1 flex-col p-7">
                 <Handshake className="h-10 w-10 text-accent" />
                 <h3 className="mt-4 font-serif text-2xl font-bold">Quero planejar minha compra com consórcio</h3>
-                <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">Descubra possibilidades de crédito e parcelas para seu objetivo, entenda taxas e regras de contemplação e avalie alternativas antes de assumir um compromisso.</p>
+                <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">A contemplação pode acontecer já na primeira assembleia, por sorteio ou lance. Descubra possibilidades de crédito e parcelas para seu objetivo.</p>
                 <Link to="/consorcios" className="mt-6 inline-flex items-center gap-2 font-bold text-primary hover:underline">Conhecer minhas opções <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </article>
@@ -83,8 +83,8 @@ export default function Index() {
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <p className="font-semibold text-accent">Antes de decidir</p>
-            <h2 className="mt-2 font-serif text-3xl font-bold md:text-4xl">Uma boa conversa pode evitar uma escolha cara.</h2>
-            <p className="mt-4 text-muted-foreground">Não oferecemos uma resposta igual para todos. Entendemos seu objetivo e mostramos o que vale conferir.</p>
+            <h2 className="mt-2 font-serif text-3xl font-bold md:text-4xl">Uma boa conversa pode aproximar você da próxima conquista.</h2>
+            <p className="mt-4 text-muted-foreground">Entendemos seu objetivo e apresentamos possibilidades que combinam com seus planos.</p>
           </div>
           <div className="mt-9 grid gap-5 md:grid-cols-3">
             {passos.map((passo, i) => (
@@ -113,7 +113,7 @@ export default function Index() {
             ))}
           </div>
           <p className="mt-6 flex items-start gap-2 text-sm text-muted-foreground">
-            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> Consórcio não tem juros de financiamento, mas tem taxa de administração e pode ter outros encargos, além de reajustes. A contemplação depende de sorteio ou lance, sem prazo garantido.
+            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> O consórcio permite planejar a compra com carta de crédito e parcelas. A contemplação pode ocorrer desde a primeira assembleia, por sorteio ou lance, conforme as regras e os recursos do grupo. Conheça com a GVS as taxas e condições do plano.
           </p>
         </div>
       </section>
@@ -122,7 +122,7 @@ export default function Index() {
         <div className="container mx-auto max-w-4xl text-center">
           <p className="font-semibold text-accent">O próximo passo pode começar hoje</p>
           <h2 className="mt-3 font-serif text-3xl font-bold md:text-4xl">Seu objetivo é importante demais para ficar só na intenção.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/85">Conte o que você quer conquistar e receba uma orientação inicial para comparar possibilidades, sem precisar escolher um plano às cegas.</p>
+          <p className="mx-auto mt-4 max-w-2xl text-white/85">Conte o que você quer conquistar e receba uma orientação inicial para conhecer suas possibilidades e dar o próximo passo com confiança.</p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <a href={whatsappUrl('uma conversa sobre consórcio ou compra de imóvel')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 font-bold text-accent-foreground">
               <MessageCircle className="h-5 w-5" /> Quero falar com a GVS
